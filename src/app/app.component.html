@@ -1,3 +1,35 @@
-<h1>
-  {{title}}
-</h1>
+
+<md-sidenav-container>
+  <md-sidenav #start>
+    <!-- sidenav content -->
+    <a md-button href="">Logout</a>
+  </md-sidenav>
+
+  <md-toolbar color='primary'>
+    <button md-button (click)="start.open()">
+      <md-icon md-svg-src="url-of-icon" aria-label="label" class="snumber">menu</md-icon>
+    </button>
+    {{title}}
+  </md-toolbar>
+
+  <!-- primary content -->
+  <div class="container">
+      <div *ngIf="title == 'app workas' else templ">
+        <h2 (click)="start.open()">{{title}}</h2>
+      </div>
+      <ng-template #templ>
+        <div class="row">
+          <div class="jumbotron">
+            <h1 class="display-3" [class]="titleStyle">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </p>
+          </div>
+        </div>
+      </ng-template>
+  </div>
+    
+</md-sidenav-container>
